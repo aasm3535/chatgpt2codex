@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useMemo, useState } from "react";
 import { ChevronDown, Copy, Download, ExternalLink } from "lucide-react";
 
@@ -25,6 +26,9 @@ const SESSION_URL = "https://chatgpt.com/api/auth/session/";
 const GITHUB_REPO =
   process.env.NEXT_PUBLIC_GITHUB_REPO ??
   "https://github.com/aasm3535/chatgpt2codex";
+const VERCEL_DEPLOY_URL =
+  process.env.NEXT_PUBLIC_VERCEL_DEPLOY_URL ??
+  `https://vercel.com/new/clone?repository-url=${encodeURIComponent(GITHUB_REPO)}&project-name=chatgpt2codex&repository-name=chatgpt2codex`;
 
 export function Converter() {
   const [input, setInput] = useState("");
@@ -66,14 +70,31 @@ export function Converter() {
             Конвертер сессии ChatGPT в auth.json для Codex CLI
           </p>
         </div>
-        <a
-          href={GITHUB_REPO}
-          target="_blank"
-          rel="noopener noreferrer"
-          className={cn(buttonVariants({ variant: "outline", size: "sm" }))}
-        >
-          GitHub
-        </a>
+        <div className="flex shrink-0 flex-wrap items-center gap-2">
+          <a
+            href={VERCEL_DEPLOY_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            title="Deploy to Vercel"
+          >
+            <Image
+              src="https://vercel.com/button"
+              alt="Deploy to Vercel"
+              width={102}
+              height={32}
+              className="h-8 w-auto"
+              unoptimized
+            />
+          </a>
+          <a
+            href={GITHUB_REPO}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={cn(buttonVariants({ variant: "outline", size: "sm" }))}
+          >
+            GitHub
+          </a>
+        </div>
       </header>
 
       <Card>
