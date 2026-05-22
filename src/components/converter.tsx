@@ -5,8 +5,7 @@ import { useMemo, useState } from "react";
 import { ChevronDown, Copy, Download, ExternalLink } from "lucide-react";
 
 import { Alert, AlertDescription } from "@/components/ui/alert";
-import { Button, buttonVariants } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
@@ -70,31 +69,22 @@ export function Converter() {
             Конвертер сессии ChatGPT в auth.json для Codex CLI
           </p>
         </div>
-        <div className="flex shrink-0 flex-wrap items-center gap-2">
-          <a
-            href={VERCEL_DEPLOY_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            title="Deploy to Vercel"
-          >
-            <Image
-              src="https://vercel.com/button"
-              alt="Deploy to Vercel"
-              width={102}
-              height={32}
-              className="h-8 w-auto"
-              unoptimized
-            />
-          </a>
-          <a
-            href={GITHUB_REPO}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={cn(buttonVariants({ variant: "outline", size: "sm" }))}
-          >
-            GitHub
-          </a>
-        </div>
+        <a
+          href={VERCEL_DEPLOY_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          title="Deploy to Vercel"
+          className="shrink-0"
+        >
+          <Image
+            src="https://vercel.com/button"
+            alt="Deploy to Vercel"
+            width={102}
+            height={32}
+            className="h-8 w-auto"
+            unoptimized
+          />
+        </a>
       </header>
 
       <Card>
